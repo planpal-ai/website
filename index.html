@@ -43,14 +43,14 @@
       });
       const label = "PlanPal -> "
       term.open(document.getElementById("terminal"));
-      term.write(`'\33[2K\r\u001b[32m~$>> ${label} \u001b[37m'`)
+      term.write(`\33[2K\r\u001b[32m~$>> ${label} \u001b[37m`)
       setInterval(() => {
         term.write(`${window.crypto.randomUUID()} `)
       }, Math.floor(Math.random() * 500))
 
       setInterval(() => {
         term.clear();
-        term.write(`'\33[2K\r\u001b[32m~$>> ${label} \u001b[37m'`)
+        term.write(`\33[2K\r\u001b[32m~$>> ${label} \u001b[37m`)
       }, Math.floor(Math.random() * 10000))
     </script>
   </body>
