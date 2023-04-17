@@ -41,7 +41,7 @@
         fontFamily: 'VT323',
         fontSize: 16,
       });
-      const label = "PlanPal -> "
+      const label = `\x1b[1;31m' PlanPal ~> '\x1b[37m' `;
       term.open(document.getElementById("terminal"));
       term.write(label)
       setInterval(() => {
