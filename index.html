@@ -26,10 +26,15 @@
     <script>
       const term = new Terminal({
         cursorBlink: true,
-        fontFamily: 'VT323'
+        fontFamily: 'VT323',
+        fontSize: 16
       });
+      const label = "> PlanPal >"
       term.open(document.getElementById("terminal"));
-      term.write("> PlanPal..");
+      term.write(label);
+      setInterval(() => {
+        term.write(`${label} ${window.crypto.randomUUID()}`)
+      }, Math.floor(Math.random() * 3000))
     </script>
   </body>
 </html>
