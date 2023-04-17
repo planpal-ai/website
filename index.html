@@ -27,17 +27,18 @@
       const term = new Terminal({
         cursorBlink: true,
         fontFamily: 'VT323',
-        fontSize: 16
+        fontSize: 16,
       });
-      const label = "> PlanPal >"
+      const label = "PlanPal >>"
       term.open(document.getElementById("terminal"));
       term.write(label);
       setInterval(() => {
-        term.write(window.crypto.randomUUID())
+        term.write(`${window.crypto.randomUUID()} `)
       }, Math.floor(Math.random() * 500))
 
       setInterval(() => {
         term.clear();
+        termn.write('PlanPal >>')
       }, Math.floor(Math.random() * 10000))
     </script>
   </body>
