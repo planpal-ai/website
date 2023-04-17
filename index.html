@@ -2,19 +2,32 @@
 <html>
   <head>
     <title>PlanPal</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@5.1.0/css/xterm.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/xterm@5.1.0/css/xterm.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/xterm@5.1.0/lib/xterm.min.js"></script>
     <style>
       html, body {
         all: unset;
-        background-color: rgba(0, 0, 0, 0);
+        background: rgba(0, 0, 0, 0);
+        padding: 1rem;
       }
     </style>
   </head>
   <body>
     <div id="terminal"></div>
     <script>
-      var term = new Terminal();
+      const term = new Terminal({
+        cursorBlink: true,
+        fontFamily: 'VT323'
+      });
       term.open(document.getElementById("terminal"));
       term.write("> PlanPal..");
     </script>
