@@ -41,7 +41,7 @@
         fontFamily: 'VT323',
         fontSize: 16,
       });
-      const label = `\x1b[1;31m' PlanPal ~> '\x1b[37m' `;
+      const label = `\x1b[1;32m [PlanPal] '\x1b[37m`;
       term.open(document.getElementById("terminal"));
       term.write(label)
       setInterval(() => {
@@ -51,7 +51,7 @@
       setInterval(() => {
         term.clear();
         term.write(label)
-      }, Math.floor(Math.random() * 10000))
+      }, Math.floor(Math.random() * 5000))
     </script>
   </body>
 </html>
