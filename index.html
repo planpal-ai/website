@@ -37,12 +37,13 @@
   <body>
     <div id="terminal"></div>
     <script defer>
-      document.addEventListener("DOMContentLoaded", () => {
-        const styles = document.querySelector('#styles')
-
-        styles.addEventListener('load', () => {
+      const styles = document.querySelector('#styles')
+      styles.addEventListener('load', () => {
           console.log('styles laoded..')
         })
+
+      document.addEventListener("DOMContentLoaded", () => {
+        
 
         const label = `\x1b[1;32m --- PlanPal --- \x1b[37m`;
         const term = new Terminal({
