@@ -11,7 +11,6 @@
       src="https://cdn.jsdelivr.net/npm/xterm@5.1.0/lib/xterm.min.js"
     ></script>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
       html, body {
         all: unset;
         background: black;
@@ -37,26 +36,40 @@
   <body>
     <div id="terminal"></div>
     <script defer>
-      document.addEventListener("DOMContentLoaded", () => {
-        const label = `\x1b[1;32m --- PlanPal --- \x1b[37m`;
-        const term = new Terminal({
-          cursorBlink: true,
-          fontFamily: "VT323",
-          fontSize: 16,
-        });
+      const launchIntro = () => {
+        document.addEventListener("DOMContentLoaded", () => {
+          window.addEventListener("");
 
-        term.open(document.getElementById("terminal"));
-        term.write(label);
+          const label = `\x1b[1;32m --- PlanPal --- \x1b[37m`;
+          const term = new Terminal({
+            cursorBlink: true,
+            fontFamily: "VT323",
+            fontSize: 16,
+          });
 
-        setInterval(() => {
-          term.write(`${window.crypto.randomUUID()} `);
-        }, Math.floor(Math.random() * 500));
-
-        setInterval(() => {
-          term.clear();
+          term.open(document.getElementById("terminal"));
           term.write(label);
-        }, Math.floor(Math.random() * 5000));
-      });
+
+          setInterval(() => {
+            term.write(`${window.crypto.randomUUID()} `);
+          }, Math.floor(Math.random() * 500));
+
+          setInterval(() => {
+            term.clear();
+            term.write(label);
+          }, Math.floor(Math.random() * 5000));
+        });
+      };
+      
+      const fonts = document.createElement("link");
+      fonts.setAttribute("rel", "stylesheet");
+      fonts.setAttribute("type", "text/css");
+      link.onload = launchIntro;
+      fonts.setAttribute(
+        "href",
+        "https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      );
+      document.getElementsByTagName("head")[0].appendChild(fonts);
     </script>
   </body>
 </html>
