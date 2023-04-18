@@ -103,12 +103,11 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
               let noise = window.crypto.randomUUID();
               term.write(noise);
             }
-          }, 100);
+          }, 500);
 
-          // setInterval(() => {
-          //   term.clear();
-          //   term.write(label);
-          // }, Math.floor(Math.random() * 5000));
+          setInterval(() => {
+            term.clear();
+          }, 60 * 1000);
         });
       });
     </script>
