@@ -87,12 +87,12 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
           });
           term.loadAddon(fitAddon);
           term.open(document.getElementById("terminal"));
-          terminal.write('\x1b[?47h') // disable scroll
-
+          term.write('\x1b[?47h') // disable scroll
           fitAddon.fit();
           window.addEventListener("resize", () => {
             fitAddon.fit();
           });
+
 
           setInterval(() => {
             let tellSense = (Math.random() + 0.5) >> 0;
