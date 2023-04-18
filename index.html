@@ -47,17 +47,19 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
   <body>
     <div id="terminal"></div>
     <script defer type="module">
-      import fitAddon from 'https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/+esm'
+      import xTermFitAddon from 'https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/+esm';
       document.addEventListener("DOMContentLoaded", () => {
         document.fonts.ready.then(() => {
-          const { FitAddon } = fitAddon
+          const { FitAddon } = xTermFitAddon
+          const fitAddon = new FitAddon();
+
           const label = `\x1b[1;32m --- PlanPal --- \x1b[37m`;
           const term = new Terminal({
             cursorBlink: true,
             fontFamily: "VT323",
             fontSize: 14,
           });
-          term.loadAddon(new FitAddon());
+          term.loadAddon(fitAddon);
           term.open(document.getElementById("terminal"));
           fitAddon.fit();
           term.write(label);
