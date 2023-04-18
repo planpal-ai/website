@@ -99,13 +99,13 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
 
             if (tellSense) {
               term.write(
-                `\x1b[1;32m ${wordList.next().value} --> \x1b[37m`
+                `\x1b[1;32m --- ${wordList.next().value} --- \x1b[37m`
               );
             } else {
               let noise = window.crypto.randomUUID();
               term.write(noise);
             }
-          }, 100);
+          }, 150);
 
           setInterval(() => {
             term.clear();
