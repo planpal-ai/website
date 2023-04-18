@@ -77,8 +77,8 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
             let tellSense = (Math.random() + 0.5) >> 0;
 
             if(tellSense) {
-              const word = words().next();
-              term.write(`\x1b[1;32m --- ${word} --- \x1b[37m`);
+              const { value } = words().next();
+              term.write(`\x1b[1;32m --- ${value} --- \x1b[37m`);
             } else {
               let noise = window.crypto.randomUUID()
               term.write(noise);
