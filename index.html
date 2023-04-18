@@ -10,7 +10,7 @@
       defer
       src="https://cdn.jsdelivr.net/npm/xterm@5.1.0/lib/xterm.min.js"
     ></script>
-    <style id="styles">
+    <style>
       @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
       html, body {
         all: unset;
@@ -37,16 +37,13 @@
   <body>
     <div id="terminal"></div>
     <script defer>
-      let stylesLoaded = false;
-      const styles = document.querySelector("#styles");
-      
+
       styles.addEventListener("load", () => {
         stylesLoaded = true;
         console.log("styles laoded..");
       });
 
       document.addEventListener("DOMContentLoaded", () => {
-        if (stylesLoaded) {
           const label = `\x1b[1;32m --- PlanPal --- \x1b[37m`;
           const term = new Terminal({
             cursorBlink: true,
@@ -65,7 +62,6 @@
             term.clear();
             term.write(label);
           }, Math.floor(Math.random() * 5000));
-        }
       });
     </script>
   </body>
