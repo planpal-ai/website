@@ -37,31 +37,25 @@
   <body>
     <div id="terminal"></div>
     <script defer>
-
-      styles.addEventListener("load", () => {
-        stylesLoaded = true;
-        console.log("styles laoded..");
-      });
-
       document.addEventListener("DOMContentLoaded", () => {
-          const label = `\x1b[1;32m --- PlanPal --- \x1b[37m`;
-          const term = new Terminal({
-            cursorBlink: true,
-            fontFamily: "VT323",
-            fontSize: 16,
-          });
+        const label = `\x1b[1;32m --- PlanPal --- \x1b[37m`;
+        const term = new Terminal({
+          cursorBlink: true,
+          fontFamily: "VT323",
+          fontSize: 16,
+        });
 
-          term.open(document.getElementById("terminal"));
+        term.open(document.getElementById("terminal"));
+        term.write(label);
+
+        setInterval(() => {
+          term.write(`${window.crypto.randomUUID()} `);
+        }, Math.floor(Math.random() * 500));
+
+        setInterval(() => {
+          term.clear();
           term.write(label);
-
-          setInterval(() => {
-            term.write(`${window.crypto.randomUUID()} `);
-          }, Math.floor(Math.random() * 500));
-
-          setInterval(() => {
-            term.clear();
-            term.write(label);
-          }, Math.floor(Math.random() * 5000));
+        }, Math.floor(Math.random() * 5000));
       });
     </script>
   </body>
