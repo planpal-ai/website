@@ -57,15 +57,33 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
           const { FitAddon } = xTermFitAddon;
           const fitAddon = new FitAddon();
 
-          const wordList = ["Hi!", "It's", "A", "PlanPal", "Project", "Its", "AutoPilot", "Task", "Managements", "System", "For", "Your", "Project",  "Currently", "Its", "Early", "Alpha",]
-          function* words() {
-            while (true) yield* wordList;
+          function* words(dict) {
+            while (true) yield* dict;
           }
+          let wordList = words([
+            "Hi!",
+            "It's",
+            "A",
+            "PlanPal",
+            "Project",
+            "Its",
+            "AutoPilot",
+            "Task",
+            "Managements",
+            "System",
+            "For",
+            "Your",
+            "Project",
+            "Currently",
+            "Its",
+            "Early",
+            "Alpha",
+          ]);
 
           const term = new Terminal({
             cursorBlink: true,
             fontFamily: "VT323",
-            fontSize: 15,
+            fontSize: 16,
           });
           term.loadAddon(fitAddon);
           term.open(document.getElementById("terminal"));
@@ -77,11 +95,12 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
           setInterval(() => {
             let tellSense = (Math.random() + 0.5) >> 0;
 
-            if(tellSense) {
-              const { value } = words().next();
-              term.write(`\x1b[1;32m --- ${value} --- \x1b[37m`);
+            if (tellSense) {
+              term.write(
+                `\x1b[1;32m --- ${wordList.next().value} --- \x1b[37m`
+              );
             } else {
-              let noise = window.crypto.randomUUID()
+              let noise = window.crypto.randomUUID();
               term.write(noise);
             }
           }, 100);
