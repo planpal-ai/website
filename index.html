@@ -12,7 +12,7 @@
     ></script>
     <style id="styles">
       @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-      html, body {  
+      html, body {
         all: unset;
         background: black;
         height: 100%;
@@ -37,33 +37,35 @@
   <body>
     <div id="terminal"></div>
     <script defer>
-      const styles = document.querySelector('#styles')
-      styles.addEventListener('load', () => {
-          console.log('styles laoded..')
-        })
+      let stylesLoaded = false;
+      const styles = document.querySelector("#styles");
+      
+      styles.addEventListener("load", () => {
+        stylesLoaded = true;
+        console.log("styles laoded..");
+      });
 
       document.addEventListener("DOMContentLoaded", () => {
-        
+        if (stylesLoaded) {
+          const label = `\x1b[1;32m --- PlanPal --- \x1b[37m`;
+          const term = new Terminal({
+            cursorBlink: true,
+            fontFamily: "VT323",
+            fontSize: 16,
+          });
 
-        const label = `\x1b[1;32m --- PlanPal --- \x1b[37m`;
-        const term = new Terminal({
-          cursorBlink: true,
-          fontFamily: "VT323",
-          fontSize: 16,
-        });
-        
-        term.open(document.getElementById("terminal"));
-        term.write(label);
-
-        setInterval(() => {
-          term.write(`${window.crypto.randomUUID()} `);
-        }, Math.floor(Math.random() * 500));
-
-        setInterval(() => {
-          term.clear();
+          term.open(document.getElementById("terminal"));
           term.write(label);
-        }, Math.floor(Math.random() * 5000));
-        
+
+          setInterval(() => {
+            term.write(`${window.crypto.randomUUID()} `);
+          }, Math.floor(Math.random() * 500));
+
+          setInterval(() => {
+            term.clear();
+            term.write(label);
+          }, Math.floor(Math.random() * 5000));
+        }
       });
     </script>
   </body>
