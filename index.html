@@ -10,7 +10,7 @@
       defer
       src="https://cdn.jsdelivr.net/npm/xterm@5.1.0/lib/xterm.min.js"
     ></script>
-    <style>
+    <style id="styles">
       @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
       html, body {  
         all: unset;
@@ -38,6 +38,12 @@
     <div id="terminal"></div>
     <script defer>
       document.addEventListener("DOMContentLoaded", () => {
+        const styles = document.querySelector('#styles')
+
+        styles.addEventListener('load', () => {
+          consoe.log('styles laoded..')
+        })
+        
         const label = `\x1b[1;32m --- PlanPal --- \x1b[37m`;
         const term = new Terminal({
           cursorBlink: true,
