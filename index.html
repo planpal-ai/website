@@ -66,12 +66,12 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
 
           setInterval(() => {
             term.write(`${window.crypto.randomUUID()} `);
-          }, Math.floor(Math.random() * 500));
+          }, 100);
 
-          setInterval(() => {
-            term.clear();
-            term.write(label);
-          }, Math.floor(Math.random() * 5000));
+          // setInterval(() => {
+          //   term.clear();
+          //   term.write(label);
+          // }, Math.floor(Math.random() * 5000));
         });
       });
     </script>
