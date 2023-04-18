@@ -57,9 +57,9 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
           const { FitAddon } = xTermFitAddon;
           const fitAddon = new FitAddon();
 
-          const wordlist = ["Hi!", "It's", "A", "PlanPal", "Project", "Its", "AutoPilot", "Task", "Managements", "System", "For", "Your", "Project",  "Currently", "Its", "Early", "Alpha",]
+          const wordList = ["Hi!", "It's", "A", "PlanPal", "Project", "Its", "AutoPilot", "Task", "Managements", "System", "For", "Your", "Project",  "Currently", "Its", "Early", "Alpha",]
           function* words() {
-            while (true) yield* wordslist;
+            while (true) yield* wordList;
           }
 
           const term = new Terminal({
