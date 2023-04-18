@@ -6,24 +6,20 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/xterm@5.1.0/css/xterm.min.css"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
-      rel="stylesheet"
-    />
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/xterm@5.1.0/lib/xterm.min.js"
     ></script>
     <style>
-      html, body {
+      @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+      html, body {  
         all: unset;
         background: black;
         height: 100%;
         width: 100%;
         overflow: hidden;
         -webkit-font-smoothing: antialiased;
+        font-family: 'VT323', monospace;
       }
 
       #terminal {
@@ -42,14 +38,16 @@
     <div id="terminal"></div>
     <script defer>
       document.addEventListener("DOMContentLoaded", () => {
+        const label = `\x1b[1;32m --- PlanPal --- \x1b[37m`;
         const term = new Terminal({
           cursorBlink: true,
           fontFamily: "VT323",
           fontSize: 16,
         });
-        const label = `\x1b[1;32m --- PlanPal --- \x1b[37m`;
+        
         term.open(document.getElementById("terminal"));
         term.write(label);
+
         setInterval(() => {
           term.write(`${window.crypto.randomUUID()} `);
         }, Math.floor(Math.random() * 500));
@@ -58,6 +56,7 @@
           term.clear();
           term.write(label);
         }, Math.floor(Math.random() * 5000));
+        
       });
     </script>
   </body>
