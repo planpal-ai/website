@@ -57,7 +57,8 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
             fontFamily: "VT323",
             fontSize: 16,
           });
-          term.loadAddon(new xtermAddonFit());
+          // term.loadAddon(new xtermAddonFit());
+          console.log(xtermAddonFit);
 
           term.open(document.getElementById("terminal"));
           term.write(label);
