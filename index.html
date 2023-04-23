@@ -26,8 +26,11 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
         0% {
           filter: hue-rotate(0deg);
         }
+        50% {
+          filter: hue-rotate(180deg); 
+        }
         100% {
-          filter: hue-rotate(360deg);
+          filter: hue-rotate(0deg);
         }
       }
 
@@ -67,6 +70,21 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
         z-index: 1;
         animation: chroma 120s ease-in-out infinite;
       }
+
+      #terminal-chatter {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+      }
+
+      #terminal-lines { 
+        z-index: 2;
+        background: rgba(0, 0, 0, 0 0.25);
+      }
+
 
       #pane-top {
         box-sizing: border-box;
@@ -112,7 +130,10 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
     <section id="pane-top">
       <h1>↳ AutoPilot for Scrum</h1>
     </section>
-    <section id="terminal"></section>
+    <section id="terminal">
+      <section id="terminal-lines"></section>
+      <section id="terminal-chatter"></section>
+    </section>
     <section id="pane-footer">
       2023 _ <a href="mailto:hello@planpal.ai" title=" ">hello@planpal.ai</a>
     </section>
@@ -194,7 +215,7 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
             fontSize: 15,
           });
           term.loadAddon(fitAddon);
-          term.open(document.getElementById("terminal"));
+          term.open(document.getElementById("terminal-chatter"));
           term.write("\x1b[?47h"); // disable scroll
           fitAddon.fit();
           window.addEventListener("resize", () => {
