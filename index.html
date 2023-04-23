@@ -279,7 +279,7 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
             } else {
               let noise = Math.floor(Math.random() * 9000000000000000) + 1000000000000000;
               // let noise = window.crypto.randomUUID();
-              term.write(noise);
+              term.write(noise.toString());
             }
           }, 50);
 
