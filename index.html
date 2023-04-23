@@ -31,8 +31,11 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
         }
       }
 
-      html, body {
+      * {
         all: unset;
+      }
+
+      html, body {
         background: black;
         height: 100%;
         width: 100%;
@@ -60,7 +63,9 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
         left: 0px;
         height: 20px;
         background: rgba(0, 0, 0, 0);
-        color: rgba(255, 255, 255, 1)
+        color: rgba(255, 255, 255, 1);
+        z-index: 2;
+        overflow: hidden;
       }
 
       .xterm-rows {
