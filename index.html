@@ -180,12 +180,12 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
         <div class="caret"></div>
       </div>
       <div>
-        <h1>[2023]</h1>
         <a href="mailto:hello@planpal.ai" title=" ">hello@planpal.ai</a>
       </div>
     </section>
     <script defer type="module">
       import xTermFitAddon from "https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/+esm";
+      import randomWordGenerator from 'https://cdn.jsdelivr.net/npm/random-word-generator@0.9.9/+esm'
       document.addEventListener("DOMContentLoaded", () => {
         document.fonts.ready.then(() => {
           const { FitAddon } = xTermFitAddon;
@@ -256,11 +256,13 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
             "//",
           ]);
 
+          const generator = new Rwg();
           const term = new Terminal({
             cursorBlink: true,
             fontFamily: "VT323",
             fontSize: 15,
           });
+          
           term.loadAddon(fitAddon);
           term.open(document.getElementById("terminal-chatter"));
           term.write("\x1b[?47h"); // disable scroll
@@ -270,14 +272,15 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
           });
 
           setInterval(() => {
-            let tellSense = (Math.random() + 0.5) >> 0;
+            const tellSense = (Math.random() + 0.5) >> 0;
 
             if (tellSense) {
               term.write(
                 `\x1b[1;32m --- ${wordList.next().value} --- \x1b[37m`
               );
             } else {
-              let noise = window.crypto.randomUUID();
+              const noise = generator.generate();
+              // let noise = window.crypto.randomUUID();
               term.write(noise);
             }
           }, 50);
