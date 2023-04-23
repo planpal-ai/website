@@ -22,153 +22,162 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
       type="text/css"
     />
     <style>
-      @keyframes chroma {
-        0% {
-          filter: hue-rotate(0deg);
-        }
-        50% {
-          filter: hue-rotate(180deg);
-        }
-        100% {
-          filter: hue-rotate(0deg);
-        }
+       @keyframes chroma {
+         0% {
+           filter: hue-rotate(0deg);
+         }
+         50% {
+           filter: hue-rotate(180deg);
+         }
+         100% {
+           filter: hue-rotate(0deg);
+         }
+       }
+
+       @keyframes blink {
+       50% {
+         opacity: 0;
+         }
+       }
+
+       html, body, h1, h2, h3, h4, h5, h6 {
+         all: unset;
+       }
+
+       html, body {
+         background: black;
+         height: 100%;
+         width: 100%;
+         overflow: hidden;
+         -webkit-font-smoothing: antialiased;
+         font-family: 'VT323', monospace;
+       }
+
+       a {
+         color: rgba(255, 255, 255, 0.8);
+         padding: 0px 5px;
+         /* text-decoration: none; */
+       }
+
+       a:hover, a:active {
+         opacity: 0.9;
+       }
+
+       .caret {
+         height: 1rem;
+         width: 0.5rem;
+         background-color: rgba(255, 255, 255, 0.5);
+         animation: blink 0.5s infinite;
+
+       }
+
+
+       #terminal {
+         box-sizing: border-box;
+         position: absolute;
+         top: 22px;
+         left: 0;
+         width: calc(100% + 20px);
+         height: calc(100% - 26px);
+         overflow: hidden;
+         z-index: 1;
+
+       }
+
+       #terminal-chatter {
+         position: relative;
+         top: 0px;
+         left: 0px;
+         z-index: 1;
+         width: 100%;
+         height: 100%;
+         -webkit-font-smoothing: antialiased;
+         animation: chroma 120s ease-in-out infinite;
+       }
+
+       #terminal-lines {
+         width: 100%;
+         height: 100%;
+         background: rgba(0, 0, 0, 0.75);
+         z-index: 3;
+         position: absolute;
+         top: 0px;
+         left: 0px;
+       }
+
+       #terminal-lines .line {
+         height: 1em;
+         margin-bottom: 10px;
+         background-color: #ffffff;
+         animation: blink 1s infinite;
+       }
+
+
+
+       #pane-top {
+         gap: 5px;
+         box-sizing: border-box;
+         padding-left: 5px;
+         position: absolute;
+         display: flex;
+         align-items: center;
+         top: 0px;
+         left: 0px;
+         height: 20px;
+         width: 100%;
+         background: rgba(0, 0, 0, 0);
+         color: rgba(255, 255, 255, 1);
+         z-index: 2;
+         overflow: hidden;
+         border-bottom: 2px solid rgba(255, 255, 255, 1);
+       }
+
+       #pane-footer {
+         gap: 5px;
+         justify-content: space-between;
+         box-sizing: border-box;
+         padding-left: 5px;
+         display: flex;
+         align-items: center;
+         font-size: 14px;
+         position: absolute;
+         bottom: 0px;
+         left: 0px;
+         height: 24px;
+         width: 100%;
+         background: rgba(0, 0, 0, 1);
+         color: rgba(255, 255, 255, 1);
+         z-index: 2;
+         overflow: hidden;
+         border-top: 2px solid rgba(255, 255, 255, 1);
+       }
+
+      #pane-footer > div > *{
+       gap: 5px;
+       display: flex;
       }
 
-      @keyframes blink {
-      50% {
-        opacity: 0;
-        }
-      }
-
-      html, body, h1, h2, h3, h4, h5, h6 {
-        all: unset;
-      }
-
-      html, body {
-        background: black;
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-        -webkit-font-smoothing: antialiased;
-        font-family: 'VT323', monospace;
-      }
-
-      a {
-        color: rgba(255, 255, 255, 0.8);
-        padding: 0px 5px;
-        /* text-decoration: none; */
-      }
-
-      a:hover, a:active {
-        opacity: 0.9;
-      }
-
-      .caret {
-        height: 1rem;
-        width: 0.5rem;
-        background-color: rgba(255, 255, 255, 0.5);
-        animation: blink 0.5s infinite;
-        
-      }
-
-
-      #terminal {
-        box-sizing: border-box;
-        position: absolute;
-        top: 22px;
-        left: 0;
-        width: calc(100% + 20px);
-        height: calc(100% - 26px);
-        overflow: hidden;
-        z-index: 1;
-
-      }
-
-      #terminal-chatter {
-        position: relative;
-        top: 0px;
-        left: 0px;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        -webkit-font-smoothing: antialiased;
-        animation: chroma 120s ease-in-out infinite;
-      }
-
-      #terminal-lines {
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.75);
-        z-index: 3;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-      }
-
-      #terminal-lines .line {
-        height: 1em;
-        margin-bottom: 10px;
-        background-color: #ffffff;
-        animation: blink 1s infinite;
-      }
-
-
-
-      #pane-top {
-        gap: 5px;
-        box-sizing: border-box;
-        padding-left: 5px;
-        position: absolute;
-        display: flex;
-        align-items: center;
-        top: 0px;
-        left: 0px;
-        height: 20px;
-        width: 100%;
-        background: rgba(0, 0, 0, 0);
-        color: rgba(255, 255, 255, 1);
-        z-index: 2;
-        overflow: hidden;
-        border-bottom: 2px solid rgba(255, 255, 255, 1);
-      }
-
-      #pane-footer {
-        gap: 5px;
-        box-sizing: border-box;
-        padding-left: 5px;
-        display: flex;
-        align-items: center;
-        font-size: 14px;
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        height: 24px;
-        width: 100%;
-        background: rgba(0, 0, 0, 1);
-        color: rgba(255, 255, 255, 1);
-        z-index: 2;
-        overflow: hidden;
-        border-top: 2px solid rgba(255, 255, 255, 1);
-      }
-
-      .xterm-rows {
-        overflow: hidden;
-      }
+       .xterm-rows {
+         overflow: hidden;
+       }
     </style>
   </head>
   <body>
     <section id="pane-top">
       <h1>PlanPal -></h1>
-      <a href="mailto:hello@planpal.ai" title=" ">hello@planpal.ai</a>
     </section>
     <section id="terminal">
-      <section id="terminal-lines">
-      </section>
+      <section id="terminal-lines"></section>
       <section id="terminal-chatter"></section>
     </section>
     <section id="pane-footer">
-      <h1>2023 _</h1>
-      <h1>AutoPilot for Scrum</h1>
+      <div>
+        <h1>2023 _</h1>
+        <h1>AutoPilot for Scrum</h1>
+      </div>
+      <div>
+        <a href="mailto:hello@planpal.ai" title=" ">hello@planpal.ai</a>
+      </div>
       <div class="caret"></div>
     </section>
     <script defer type="module">
