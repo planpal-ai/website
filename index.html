@@ -266,7 +266,7 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
               );
             } else {
               let randomNumber = Math.floor(Math.random() * 100) + 1;
-              let noise = Array(randomNumber).fill("░").join("")
+              let noise = Array(randomNumber).fill("▒").join("")
               // let noise = window.crypto.randomUUID();
               term.write(noise.toString());
             }
