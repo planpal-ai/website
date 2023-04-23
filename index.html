@@ -54,12 +54,13 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
         animation: chroma 120s ease-in-out infinite;
       }
 
-      #intro {
+      #pane {
         position: absolute;
         top: 0px;
         left: 0px;
         height: 20px;
-        background: rgba(0, 0, 0, 0)
+        background: rgba(0, 0, 0, 0);
+        color: rgba(255, 255, 255, 1)
       }
 
       .xterm-rows {
@@ -68,10 +69,10 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
     </style>
   </head>
   <body>
-    <div id="terminal"></div>
-    <div id="panel">
-      <h1>Scrum AutoPilot</h1>
-    </div>
+    <section id="pane">
+      <h1>AutoPilot for Scrum</h1>
+    </section>
+    <section id="terminal"></section>
     <script defer type="module">
       import xTermFitAddon from "https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/+esm";
       document.addEventListener("DOMContentLoaded", () => {
