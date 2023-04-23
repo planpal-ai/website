@@ -44,7 +44,7 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
       #terminal {
         box-sizing: border-box;
         position: absolute;
-        top: 0;
+        top: 20px;
         left: 0;
         width: 100%;
         height: 100%;
@@ -56,10 +56,10 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
 
       #intro {
         position: absolute;
-        top: 50%;
-        left: 50%;
-
-        transform: translate(-25%, -25%);
+        top: 0px;
+        left: 0px;
+        height: 20px;
+        background: rgba(0, 0, 0, 0)
       }
 
       .xterm-rows {
@@ -69,7 +69,7 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
   </head>
   <body>
     <div id="terminal"></div>
-    <div id="intro">
+    <div id="panel">
       <h1>Scrum AutoPilot</h1>
     </div>
     <script defer type="module">
