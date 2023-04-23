@@ -74,7 +74,7 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
        #terminal {
          box-sizing: border-box;
          position: absolute;
-         top: 22px;
+         top: 2px;
          left: 0;
          width: calc(100% + 20px);
          height: calc(100% - 24px);
@@ -95,7 +95,7 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
          opacity: 0.85;
        }
 
-       #pane-top {
+       #pane-footer {
          gap: 5px;
          font-size: 14px;
          box-sizing: border-box;
@@ -114,17 +114,17 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
          /* border-bottom: 2px solid rgba(255, 255, 255, 1); */
        }
 
-       #pane-top > div {
+       #pane-footer > div {
         display: flex;
         gap: 5px;
         flex-direction: row;
        }
 
-       #pane-top > div > * {
+       #pane-footer > div > * {
         gap: 5px;
        }
 
-       #pane-footer {
+       /* #pane-footer {
          gap: 5px;
          justify-content: space-between;
          box-sizing: border-box;
@@ -151,7 +151,7 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
       #pane-footer > div > * {
        gap: 5px;
        display: flex;
-      }
+      } */
 
        .xterm-rows {
          overflow: hidden;
@@ -159,7 +159,7 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
     </style>
   </head>
   <body>
-    <section id="pane-top">
+    <section id="pane-footer">
       <div>
         <h1>PlanPal -> AutoPilot for Scrum</h1>
         <div class="caret"></div>
