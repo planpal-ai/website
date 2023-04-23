@@ -46,6 +46,7 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
 
       a {
         color: rgba(255, 255, 255, 0.8);
+        padding: 0px 5px;
         /* text-decoration: none; */
       }
 
@@ -69,7 +70,11 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
       }
 
       #pane-top {
+        box-sizing: border-box;
+        padding-left: 5px;
         position: absolute;
+        display: flex;
+        align-items: center;
         top: 0px;
         left: 0px;
         height: 20px;
@@ -80,8 +85,12 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
         overflow: hidden;
         border-bottom: 2px solid rgba(255, 255, 255, 1);
       }
-      
+
       #pane-footer {
+        box-sizing: border-box;
+        padding-left: 5px;
+        display: flex;
+        align-items: center;
         font-size: 14px;
         position: absolute;
         bottom: 0px;
@@ -119,65 +128,65 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
             while (true) yield* dict;
           }
           let wordList = words([
-              "productivity",
-              "app",
-              "that",
-              "streamlines",
-              "agile",
-              "scrum",
-              "management",
-              "by",
-              "providing",
-              "an",
-              "autopilot",
-              "feature",
-              "//",
-              "app",
-              "generates",
-              "random",
-              "words",
-              "every",
-              "day",
-              "to",
-              "inspire",
-              "team",
-              "discussions",
-              "during",
-              "daily",
-              "standups",
-              "//",
-              "encouraging",
-              "creative",
-              "thinking",
-              "and",
-              "collaboration",
-              "//",
-              "also",
-              "includes",
-              "tools",
-              "for",
-              "task",
-              "and",
-              "project",
-              "management",
-              "//",
-              "real-time",
-              "progress",
-              "tracking",
-              "and",
-              "reporting",
-              "//",
-              "It",
-              "helps",
-              "teams",
-              "stay",
-              "on",
-              "track",
-              "and",
-              "meet",
-              "their",
-              "goals",
-              "//"
+            "productivity",
+            "app",
+            "that",
+            "streamlines",
+            "agile",
+            "scrum",
+            "management",
+            "by",
+            "providing",
+            "an",
+            "autopilot",
+            "feature",
+            "//",
+            "app",
+            "generates",
+            "random",
+            "words",
+            "every",
+            "day",
+            "to",
+            "inspire",
+            "team",
+            "discussions",
+            "during",
+            "daily",
+            "standups",
+            "//",
+            "encouraging",
+            "creative",
+            "thinking",
+            "and",
+            "collaboration",
+            "//",
+            "also",
+            "includes",
+            "tools",
+            "for",
+            "task",
+            "and",
+            "project",
+            "management",
+            "//",
+            "real-time",
+            "progress",
+            "tracking",
+            "and",
+            "reporting",
+            "//",
+            "It",
+            "helps",
+            "teams",
+            "stay",
+            "on",
+            "track",
+            "and",
+            "meet",
+            "their",
+            "goals",
+            "//",
           ]);
 
           const term = new Terminal({
