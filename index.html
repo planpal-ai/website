@@ -253,11 +253,12 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
                 `\x1b[1;32m ${wordList.next().value} \x1b[37m`
               );
             } else {
-              let randomNumber = Math.floor(Math.random() * 100) + 1;
-              let noise = Array(randomNumber).fill("▒").join("")
+              let randomSize = Math.floor(Math.random() * 100) + 1;
+              let randomSpaceSize = Math.floor(Math.random() * 10) + 1;
+              let noise = Array(randomSize).fill("▒").join("").toString();
+              let spaceNoise = Array(randomSpaceSize).fill(" ").join("").toString();
               const skip = (Math.random() + 0.15) >> 0;
-              // let noise = window.crypto.randomUUID();
-              term.write(skip ? " " : noise.toString());
+              term.write(skip ? spaceNoise : noise);
             }
           }, 50);
 
