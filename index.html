@@ -78,7 +78,7 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
          top: 22px;
          left: 0;
          width: calc(100% + 20px);
-         height: calc(100% - 26px);
+         height: calc(100% - 24px);
          overflow: hidden;
          z-index: 1;
 
@@ -271,7 +271,7 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
               );
             } else {
               let randomNumber = Math.floor(Math.random() * 100) + 1;
-              let noise = Array(randomNumber).fill("#").join("")
+              let noise = Array(randomNumber).fill("░").join("")
               // let noise = window.crypto.randomUUID();
               term.write(noise.toString());
             }
