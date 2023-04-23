@@ -22,6 +22,15 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
       type="text/css"
     />
     <style>
+      @keyframes chroma {
+        0% {
+          filter: hue-rotate(0deg);
+        }
+        100% {
+          filter: hue-rotate(360deg);
+        }
+      }
+
       html, body {
         all: unset;
         background: black;
@@ -41,6 +50,16 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
         height: 100%;
         overflow: hidden;
         -webkit-font-smoothing: antialiased;
+        z-index: 1;
+        animation: chroma 120s ease-in-out infinite;
+      }
+
+      #intro {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-25%, -25%);
       }
 
       .xterm-rows {
@@ -50,6 +69,9 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
   </head>
   <body>
     <div id="terminal"></div>
+    <div id="intro">
+      <h1>Scrum AutoPilot</h1>
+    </div>
     <script defer type="module">
       import xTermFitAddon from "https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/+esm";
       document.addEventListener("DOMContentLoaded", () => {
@@ -95,12 +117,11 @@ https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.7.0/lib/xterm-addon-fit.min.js
           });
           term.loadAddon(fitAddon);
           term.open(document.getElementById("terminal"));
-          term.write('\x1b[?47h') // disable scroll
+          term.write("\x1b[?47h"); // disable scroll
           fitAddon.fit();
           window.addEventListener("resize", () => {
             fitAddon.fit();
           });
-
 
           setInterval(() => {
             let tellSense = (Math.random() + 0.5) >> 0;
